@@ -2,30 +2,38 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <section id="home" className="h-screen w-full flex items-center justify-center relative bg-[#05060f]">
-      {/* 
-        This container is used to hide the "Build with Spline" watermark.
-        By setting overflow to hidden and making the iframe larger than the container,
-        we can clip the edges of the iframe where the watermark is located.
-      */}
-       <div className="absolute inset-0 z-0 overflow-hidden">
-        <iframe 
-            src='https://my.spline.design/thresholddarkambientuicopy-ZoSBFAEssQKoX80XdmbUtaAm/' 
-            frameBorder='0' 
-            className="absolute"
-            style={{ 
-              // Enlarge the iframe to push the watermark out of view.
-              // The watermark is in the bottom-right corner. These values are
-              // calculated to be large enough to hide it completely.
-              width: 'calc(100% + 240px)', 
-              height: 'calc(100% + 100px)',
-              // Reposition the iframe to keep the 3D content centered.
-              top: '-50px',
-              left: '-120px'
-            }}
-            title="Interactive Spline 3D Model"
-        ></iframe>
+    <section id="home" className="h-screen w-full flex items-center justify-center relative bg-transparent">
+      <div className="relative z-10 text-center text-white p-6 pointer-events-none">
+        <h1 
+          className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-widest animate-fade-in-up"
+          style={{ textShadow: '0 0 15px rgba(216, 236, 248, 0.5), 0 0 30px rgba(216, 236, 248, 0.3)' }}
+        >
+          Utkarsh Adlak
+        </h1>
+        <p 
+          className="text-lg md:text-xl lg:text-2xl mt-4 font-light uppercase tracking-widest animate-fade-in-up"
+          style={{ animationDelay: '0.3s' }}
+        >
+          Clarity | Focus | Impact
+        </p>
       </div>
+
+      <style>{`
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 1s ease-out forwards;
+          opacity: 0; /* Start hidden */
+        }
+      `}</style>
     </section>
   );
 };

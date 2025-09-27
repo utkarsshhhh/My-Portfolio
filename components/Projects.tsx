@@ -61,7 +61,10 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
     const hoverTransition = "transition-[background-color,color,box-shadow] duration-300";
 
     return (
-        <div ref={ref} className="group grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center mb-20 md:mb-32 transition-transform duration-300 ease-out hover:-translate-y-2">
+        <div 
+            ref={ref} 
+            className="group grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center mb-20 md:mb-32 relative"
+        >
             {/* Image Column */}
             <div className={`relative rounded-lg overflow-hidden ${isEven ? 'md:order-1' : 'md:order-2'} ${scrollTransition} ${
                 isVisible 
@@ -92,11 +95,12 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
                     href={project.link} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-block bg-transparent border-2 border-[#D8ECF8] text-[#D8ECF8] font-bold py-3 px-6 rounded-lg glowing-btn-hover hover:bg-[#D8ECF8] hover:text-[#05060f] ${hoverTransition} ${scrollTransition} delay-[400ms] ${
+                    className={`inline-flex items-center gap-2 bg-transparent border-2 border-[#D8ECF8] text-[#D8ECF8] font-bold py-3 px-6 rounded-lg glowing-btn-hover hover:bg-[#D8ECF8] hover:text-[#05060f] ${hoverTransition} ${scrollTransition} delay-[400ms] ${
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                     }`}
                 >
-                    View Project
+                    <span>View Project</span>
+                    <i className="ph-bold ph-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
                 </a>
             </div>
         </div>
