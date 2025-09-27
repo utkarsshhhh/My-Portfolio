@@ -8,50 +8,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
-  const cursorDotRef = useRef<HTMLDivElement>(null);
-  const cursorOutlineRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const cursorDot = cursorDotRef.current;
-    const cursorOutline = cursorOutlineRef.current;
-
-    if (!cursorDot || !cursorOutline) return;
-
-    const moveCursor = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      
-      cursorDot.style.left = `${clientX}px`;
-      cursorDot.style.top = `${clientY}px`;
-      
-      cursorOutline.animate(
-        { left: `${clientX}px`, top: `${clientY}px` }, 
-        { duration: 500, fill: "forwards" }
-      );
-    };
-
-    window.addEventListener('mousemove', moveCursor);
-
-    const handleMouseOver = () => cursorOutline.classList.add('hover');
-    const handleMouseOut = () => cursorOutline.classList.remove('hover');
-
-    const interactiveElements = document.querySelectorAll(
-      'a, button, [role="button"], input, [type="submit"], .cursor-pointer'
-    );
-    
-    interactiveElements.forEach(el => {
-      el.addEventListener('mouseover', handleMouseOver);
-      el.addEventListener('mouseout', handleMouseOut);
-    });
-
-    return () => {
-      window.removeEventListener('mousemove', moveCursor);
-      interactiveElements.forEach(el => {
-        el.removeEventListener('mouseover', handleMouseOver);
-        el.removeEventListener('mouseout', handleMouseOut);
-      });
-    };
-  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -197,9 +154,6 @@ const App: React.FC = () => {
     <div className="text-[#D8ECF8] font-sans relative">
       <canvas ref={canvasRef} className="fixed inset-0 z-0 w-full h-full bg-[#05060f]" />
       
-      <div ref={cursorDotRef} className="custom-cursor-dot"></div>
-      <div ref={cursorOutlineRef} className="custom-cursor-outline"></div>
-
       <div className="light-spot" style={{ top: '10%', left: '15%' }}></div>
       <div className="light-spot" style={{ top: '50%', right: '10%' }}></div>
       <div className="light-spot" style={{ top: '80%', left: '5%' }}></div>
