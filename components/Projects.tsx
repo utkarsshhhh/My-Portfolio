@@ -34,7 +34,7 @@ const projectsData: Project[] = [
     link: 'https://sidcup-familyolf.netlify.app/',
   },
   {
-    image: 'https://image.thum.io/get/width/800/crop/600/https://miranda-six.vercel.app/',
+    image: 'https://res.cloudinary.com/dtppzubgz/image/upload/v1762878470/Screenshot_2025-11-11_at_9.39.25_PM_s5ysp1.png',
     title: 'Miranda Artist Portfolio',
     description: 'A minimalist and artistic portfolio website for a creative professional, highlighting their work through a clean layout and subtle animations.',
     link: 'https://miranda-six.vercel.app/',
