@@ -16,15 +16,15 @@ const Footer: React.FC = () => {
     };
 
   return (
-    <footer className="bg-black/20 border-t border-white/10 py-8">
-      <div className="container mx-auto px-6 text-center text-gray-400">
+    <footer className="bg-white/20 dark:bg-black/20 border-t border-gray-200 dark:border-white/10 py-8">
+      <div className="container mx-auto px-6 text-center text-gray-500 dark:text-gray-400">
         <div className="flex justify-center space-x-6 mb-4">
             {navLinks.map((link) => (
                 <a 
                     key={link.href} 
                     href={link.href} 
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    className="text-sm hover:text-white transition-colors duration-300 glowing-text-hover relative cursor-pointer"
+                    className="text-sm hover:text-slate-900 dark:hover:text-white transition-colors duration-300 glowing-text-hover relative cursor-pointer"
                 >
                     {link.label}
                 </a>
@@ -38,6 +38,9 @@ const Footer: React.FC = () => {
         </p>
         <style>{`
             .glowing-text-hover:hover { 
+                text-shadow: 0 0 8px rgba(59, 130, 246, 0.5); 
+            }
+            .dark .glowing-text-hover:hover { 
                 text-shadow: 0 0 8px rgba(216, 236, 248, 0.7); 
             }
         `}</style>

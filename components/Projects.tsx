@@ -71,7 +71,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
                 ? 'opacity-100 translate-y-0 rotate-0' 
                 : 'opacity-0 translate-y-4 -rotate-2'
             }`}>
-                <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-br from-[#D8ECF8]/20 to-blue-600/20 rounded-xl blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
+                <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-br from-blue-400/20 to-blue-600/20 dark:from-[#D8ECF8]/20 dark:to-blue-600/20 rounded-xl blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
                 <img
                     loading="lazy"
                     src={project.image}
@@ -86,7 +86,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
                 }`}>
                     {project.title}
                 </h3>
-                <p className={`text-gray-300 leading-relaxed mb-6 ${scrollTransition} delay-300 ${
+                <p className={`text-gray-600 dark:text-gray-300 leading-relaxed mb-6 ${scrollTransition} delay-300 ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}>
                     {project.description}
@@ -95,7 +95,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
                     href={project.link} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-flex items-center gap-2 bg-transparent border-2 border-[#D8ECF8] text-[#D8ECF8] font-bold py-3 px-6 rounded-lg glowing-btn-hover hover:bg-[#D8ECF8] hover:text-[#05060f] ${hoverTransition} ${scrollTransition} delay-[400ms] ${
+                    className={`inline-flex items-center gap-2 bg-transparent border-2 border-slate-800 dark:border-[#D8ECF8] text-slate-800 dark:text-[#D8ECF8] font-bold py-3 px-6 rounded-lg glowing-btn-hover hover:bg-slate-800 dark:hover:bg-[#D8ECF8] hover:text-white dark:hover:text-[#05060f] ${hoverTransition} ${scrollTransition} delay-[400ms] ${
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                     }`}
                 >

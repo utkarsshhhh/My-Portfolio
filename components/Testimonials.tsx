@@ -43,7 +43,7 @@ const Testimonials: React.FC = () => {
   }, [isVisible]);
 
   return (
-    <section id="testimonials" ref={ref} className="py-24 sm:py-32 bg-[#05060f]/50 backdrop-blur-sm overflow-hidden">
+    <section id="testimonials" ref={ref} className="py-24 sm:py-32 bg-gray-100/50 dark:bg-[#05060f]/50 backdrop-blur-sm overflow-hidden">
       <div className="container mx-auto px-6 text-center">
         <h2 className={`text-4xl sm:text-5xl font-bold mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           What Clients Say
@@ -58,15 +58,15 @@ const Testimonials: React.FC = () => {
                 ${index < activeIndex ? '-translate-x-full' : ''}
               `}
             >
-              <div className="max-w-3xl bg-black/20 p-8 rounded-2xl border border-white/10 glowing-shadow-sm transition-all duration-300 hover:border-white/20 hover:glowing-shadow">
+              <div className="max-w-3xl bg-white dark:bg-black/20 p-8 rounded-2xl border border-gray-200 dark:border-white/10 glowing-shadow-sm transition-all duration-300 hover:border-gray-300 dark:hover:border-white/20 hover:glowing-shadow">
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-[#D8ECF8]/50"
+                  className="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-blue-500/50 dark:border-[#D8ECF8]/50"
                 />
-                <p className="text-lg italic text-gray-300 mb-6">"{testimonial.review}"</p>
-                <h3 className="text-xl font-bold text-white">{testimonial.name}</h3>
-                <p className="text-sm text-gray-400">{testimonial.title}</p>
+                <p className="text-lg italic text-gray-600 dark:text-gray-300 mb-6">"{testimonial.review}"</p>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white">{testimonial.name}</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.title}</p>
               </div>
             </div>
           ))}
@@ -78,7 +78,7 @@ const Testimonials: React.FC = () => {
                 <button
                     key={index}
                     onClick={() => setActiveIndex(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${activeIndex === index ? 'bg-[#D8ECF8] scale-125' : 'bg-gray-600 hover:bg-gray-400'}`}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${activeIndex === index ? 'bg-slate-800 dark:bg-[#D8ECF8] scale-125' : 'bg-gray-400 dark:bg-gray-600 hover:bg-gray-500 dark:hover:bg-gray-400'}`}
                     aria-label={`Go to testimonial ${index + 1}`}
                 ></button>
             ))}

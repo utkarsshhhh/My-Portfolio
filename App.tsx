@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+
+import React, { useEffect, useRef, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -7,8 +8,22 @@ import MiniGallery from './components/MiniGallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+type Theme = 'light' | 'dark';
+
 const App: React.FC = () => {
+  // Keeping theme state for styling logic, but removing toggle capability
+  const [theme] = useState<Theme>('dark');
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+  }, [theme]);
+
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -38,7 +53,9 @@ const App: React.FC = () => {
         this.size = Math.random() * 2 + 1;
         this.speedX = (Math.random() - 0.5) * 1;
         this.speedY = (Math.random() - 0.5) * 1;
-        this.color = `rgba(216, 236, 248, ${Math.random() * 0.5 + 0.2})`;
+        this.color = theme === 'dark' 
+            ? `rgba(216, 236, 248, ${Math.random() * 0.5 + 0.2})` 
+            : `rgba(45, 55, 72, ${Math.random() * 0.5 + 0.2})`;
         this.baseX = this.x;
         this.baseY = this.y;
         this.density = (Math.random() * 20) + 10; // Parallax depth
@@ -100,10 +117,17 @@ const App: React.FC = () => {
         const sphereX = canvas.width / 2 - dx / 40;
         const sphereY = canvas.height / 2 - dy / 40;
         const sphereRadius = Math.min(canvas.width, canvas.height) / 7;
+        
         const gradient = ctx.createRadialGradient(sphereX, sphereY, sphereRadius * 0.2, sphereX, sphereY, sphereRadius);
-        gradient.addColorStop(0, 'rgba(216, 236, 248, 0.15)');
-        gradient.addColorStop(0.5, 'rgba(216, 236, 248, 0.05)');
-        gradient.addColorStop(1, 'rgba(5, 6, 15, 0)');
+        if (theme === 'dark') {
+            gradient.addColorStop(0, 'rgba(216, 236, 248, 0.15)');
+            gradient.addColorStop(0.5, 'rgba(216, 236, 248, 0.05)');
+            gradient.addColorStop(1, 'rgba(5, 6, 15, 0)');
+        } else {
+            gradient.addColorStop(0, 'rgba(59, 130, 246, 0.1)');
+            gradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.05)');
+            gradient.addColorStop(1, 'rgba(248, 249, 250, 0)');
+        }
         
         ctx.fillStyle = gradient;
         ctx.beginPath();
@@ -113,12 +137,13 @@ const App: React.FC = () => {
 
     const connectParticles = () => {
         if (!ctx) return;
+        const connectColor = theme === 'dark' ? '216, 236, 248' : '45, 55, 72';
         for (let a = 0; a < particles.length; a++) {
             for (let b = a; b < particles.length; b++) {
                 const distance = Math.hypot(particles[a].x - particles[b].x, particles[a].y - particles[b].y);
                 if (distance < 120) {
                     const opacity = 1 - distance / 120;
-                    ctx.strokeStyle = `rgba(216, 236, 248, ${opacity * 0.3})`;
+                    ctx.strokeStyle = `rgba(${connectColor}, ${opacity * 0.3})`;
                     ctx.lineWidth = 0.5;
                     ctx.beginPath();
                     ctx.moveTo(particles[a].x, particles[a].y);
@@ -147,16 +172,20 @@ const App: React.FC = () => {
       window.removeEventListener('resize', resizeCanvas);
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []);
+  }, [theme]);
 
 
   return (
-    <div className="text-[#D8ECF8] font-sans relative">
-      <canvas ref={canvasRef} className="fixed inset-0 z-0 w-full h-full bg-[#05060f]" />
+    <div className="text-slate-800 dark:text-[#D8ECF8] font-sans relative">
+      <canvas ref={canvasRef} className="fixed inset-0 z-0 w-full h-full bg-transparent" />
       
-      <div className="light-spot" style={{ top: '10%', left: '15%' }}></div>
-      <div className="light-spot" style={{ top: '50%', right: '10%' }}></div>
-      <div className="light-spot" style={{ top: '80%', left: '5%' }}></div>
+      {theme === 'dark' && (
+        <>
+            <div className="light-spot" style={{ top: '10%', left: '15%' }}></div>
+            <div className="light-spot" style={{ top: '50%', right: '10%' }}></div>
+            <div className="light-spot" style={{ top: '80%', left: '5%' }}></div>
+        </>
+      )}
       
       <Header />
       <main className="relative z-10">

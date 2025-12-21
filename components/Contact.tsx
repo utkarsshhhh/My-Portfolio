@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
     }
 
     return (
-        <section id="contact" ref={ref} className="py-24 sm:py-32 bg-[#05060f]/50 backdrop-blur-sm">
+        <section id="contact" ref={ref} className="py-24 sm:py-32 bg-gray-100/50 dark:bg-[#05060f]/50 backdrop-blur-sm">
             <div className="container mx-auto px-6">
                 <h2 className={`text-4xl sm:text-5xl font-bold text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                     Get In Touch
@@ -64,7 +64,7 @@ const Contact: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
                         <h3 className="text-3xl font-semibold mb-4">Let's Connect</h3>
-                        <p className="text-gray-300 mb-8">
+                        <p className="text-gray-600 dark:text-gray-300 mb-8">
                             I'm currently available for freelance work or full-time opportunities. If you have a project in mind or just want to say hi, feel free to reach out.
                         </p>
                         <div className="flex items-center flex-wrap gap-6">
@@ -75,7 +75,7 @@ const Contact: React.FC = () => {
                                         href={link.href} 
                                         target="_blank" 
                                         rel="noopener noreferrer" 
-                                        className={`text-4xl text-[#D8ECF8] transition-all duration-300 hover:text-white hover:-translate-y-1 glowing-shadow-sm p-2 rounded-full`}
+                                        className={`text-4xl text-slate-700 dark:text-[#D8ECF8] transition-all duration-300 hover:text-slate-900 dark:hover:text-white hover:-translate-y-1 glowing-shadow-sm p-2 rounded-full`}
                                         aria-label={`Contact me on ${link.name}`}
                                     >
                                         <i className={`ph-bold ${link.icon}`}></i>
@@ -86,7 +86,7 @@ const Contact: React.FC = () => {
                                 href="https://res.cloudinary.com/dtppzubgz/image/upload/v1758961692/Resume-2_qhbwjj.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block bg-transparent border-2 border-[#D8ECF8] text-[#D8ECF8] font-bold py-3 px-6 rounded-lg glowing-btn-hover hover:bg-[#D8ECF8] hover:text-[#05060f] transition-all duration-300"
+                                className="inline-block bg-transparent border-2 border-slate-800 dark:border-[#D8ECF8] text-slate-800 dark:text-[#D8ECF8] font-bold py-3 px-6 rounded-lg glowing-btn-hover hover:bg-slate-800 dark:hover:bg-[#D8ECF8] hover:text-white dark:hover:text-[#05060f] transition-all duration-300"
                             >
                                 Resume
                             </a>
@@ -95,25 +95,25 @@ const Contact: React.FC = () => {
                     <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
                         <form 
                             onSubmit={handleSubmit} 
-                            className="bg-black/20 p-8 rounded-2xl border border-white/10 glowing-shadow-sm space-y-6"
+                            className="bg-white dark:bg-black/20 p-8 rounded-2xl border border-gray-200 dark:border-white/10 glowing-shadow-sm space-y-6"
                         >
                             <div className={`transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: '300ms'}}>
-                                <input type="text" name="name" placeholder="Your Name" required className="w-full bg-white/5 p-4 rounded-lg border border-white/10 focus:outline-none focus:ring-2 focus:ring-[#D8ECF8]/50 transition-all text-white" />
+                                <input type="text" name="name" placeholder="Your Name" required className="w-full bg-gray-100 dark:bg-white/5 p-4 rounded-lg border border-gray-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500/50 dark:focus:ring-[#D8ECF8]/50 transition-all text-slate-800 dark:text-white" />
                             </div>
                             <div className={`transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: '400ms'}}>
-                                <input type="email" name="email" placeholder="Your Email" required className="w-full bg-white/5 p-4 rounded-lg border border-white/10 focus:outline-none focus:ring-2 focus:ring-[#D8ECF8]/50 transition-all text-white" />
+                                <input type="email" name="email" placeholder="Your Email" required className="w-full bg-gray-100 dark:bg-white/5 p-4 rounded-lg border border-gray-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500/50 dark:focus:ring-[#D8ECF8]/50 transition-all text-slate-800 dark:text-white" />
                             </div>
                             <div className={`transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: '500ms'}}>
-                                <textarea name="message" placeholder="Your Message" rows={4} required className="w-full bg-white/5 p-4 rounded-lg border border-white/10 focus:outline-none focus:ring-2 focus:ring-[#D8ECF8]/50 transition-all text-white resize-none"></textarea>
+                                <textarea name="message" placeholder="Your Message" rows={4} required className="w-full bg-gray-100 dark:bg-white/5 p-4 rounded-lg border border-gray-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500/50 dark:focus:ring-[#D8ECF8]/50 transition-all text-slate-800 dark:text-white resize-none"></textarea>
                             </div>
                             <div className={`transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: '600ms'}}>
                                 <button 
                                     type="submit" 
                                     disabled={status === 'sending'}
-                                    className={`w-full text-[#05060f] font-bold py-4 px-6 rounded-lg transition-all duration-300 glowing-btn-hover hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed
-                                    ${status === 'success' ? 'bg-green-400' : ''}
+                                    className={`w-full text-white dark:text-[#05060f] font-bold py-4 px-6 rounded-lg transition-all duration-300 glowing-btn-hover hover:bg-slate-700 dark:hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed
+                                    ${status === 'success' ? 'bg-green-500' : ''}
                                     ${status === 'error' ? 'bg-red-500' : ''}
-                                    ${status === 'idle' ? 'bg-[#D8ECF8]' : ''}
+                                    ${status === 'idle' ? 'bg-slate-800 dark:bg-[#D8ECF8]' : ''}
                                     `}
                                 >
                                     {getButtonText()}

@@ -3,10 +3,9 @@ import React from 'react';
 const Hero: React.FC = () => {
   return (
     <section id="home" className="h-screen w-full flex items-center justify-center relative bg-transparent">
-      <div className="relative z-10 text-center text-white p-6 pointer-events-none">
+      <div className="relative z-10 text-center text-slate-900 dark:text-white p-6 pointer-events-none">
         <h1 
-          className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-widest animate-fade-in-up"
-          style={{ textShadow: '0 0 15px rgba(216, 236, 248, 0.5), 0 0 30px rgba(216, 236, 248, 0.3)' }}
+          className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-widest animate-fade-in-up hero-text-shadow"
         >
           Utkarsh Adlak
         </h1>
@@ -19,6 +18,12 @@ const Hero: React.FC = () => {
       </div>
 
       <style>{`
+        .hero-text-shadow {
+           text-shadow: 0 0 15px rgba(59, 130, 246, 0.3), 0 0 30px rgba(59, 130, 246, 0.2);
+        }
+        .dark .hero-text-shadow {
+          text-shadow: 0 0 15px rgba(216, 236, 248, 0.5), 0 0 30px rgba(216, 236, 248, 0.3);
+        }
         @keyframes fade-in-up {
           from {
             opacity: 0;
