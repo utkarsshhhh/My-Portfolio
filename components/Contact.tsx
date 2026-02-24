@@ -83,7 +83,7 @@ const Contact: React.FC = () => {
                                 ))}
                             </div>
                             <a 
-                                href="https://res.cloudinary.com/dtppzubgz/image/upload/v1758961692/Resume-2_qhbwjj.pdf"
+                                href="https://res.cloudinary.com/dtppzubgz/image/upload/Resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-block bg-transparent border-2 border-slate-800 dark:border-[#D8ECF8] text-slate-800 dark:text-[#D8ECF8] font-bold py-3 px-6 rounded-lg glowing-btn-hover hover:bg-slate-800 dark:hover:bg-[#D8ECF8] hover:text-white dark:hover:text-[#05060f] transition-all duration-300"
